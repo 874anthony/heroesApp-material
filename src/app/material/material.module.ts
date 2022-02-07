@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   exports: [
     MatAutocompleteModule,
+    MatSelectModule,
     MatSidenavModule,
     MatCardModule,
     MatInputModule,
@@ -26,6 +29,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatProgressSpinnerModule,
     MatGridListModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}

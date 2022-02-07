@@ -1,1 +1,75 @@
-<p>add-hero works!</p>
+<h1>
+  Nuevo Héroe <small>{{ heroe.superhero }}</small>
+</h1>
+
+<div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column">
+  <div fxLayout="column" fxFlex="50">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+      <mat-form-field fxFlex="100" fxLayout.xs="column">
+        <mat-label>Super Héroe</mat-label>
+        <input [(ngModel)]="heroe.superhero" type="text" matInput required />
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Alter ego</mat-label>
+        <input [(ngModel)]="heroe.alter_ego" type="text" matInput required />
+      </mat-form-field>
+    </div>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Primera aparición</mat-label>
+      <input
+        [(ngModel)]="heroe.first_appearance"
+        type="text"
+        matInput
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Personajes</mat-label>
+      <input [(ngModel)]="heroe.characters" type="text" matInput required />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Creador</mat-label>
+      <mat-select required [(ngModel)]="heroe.publisher">
+        <mat-option
+          *ngFor="let publisher of publishers"
+          [value]="publisher.id"
+          >{{ publisher.desc }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Foto</mat-label>
+      <input type="url" matInput required [(ngModel)]="heroe.alt_img" />
+    </mat-form-field>
+
+    <br />
+
+    <div fxLayout>
+      <button (click)="saveHero()" mat-raised-button color="primary">
+        <mat-icon>edit</mat-icon>
+        Guardar
+      </button>
+
+      <span class="spacer"></span>
+
+      <button
+        (click)="deleteHero()"
+        *ngIf="heroe.id"
+        color="warn"
+        mat-raised-button
+      >
+        <mat-icon>remove</mat-icon>
+        Borrar
+      </button>
+    </div>
+  </div>
+
+  <div fxFlex="50">
+    <img [src]="heroe | heroeImage" alt="" />
+  </div>
+</div>

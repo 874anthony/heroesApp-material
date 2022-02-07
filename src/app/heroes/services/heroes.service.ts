@@ -23,4 +23,19 @@ export class HeroesService {
       `${environment.apiURL}/heroes?q=${field}&_limit=6`
     );
   }
+
+  addHero(heroe: Heroe): Observable<Heroe> {
+    return this.httpClient.post<Heroe>(`${environment.apiURL}/heroes`, heroe);
+  }
+
+  updateHero(heroe: Heroe): Observable<Heroe> {
+    return this.httpClient.put<Heroe>(
+      `${environment.apiURL}/heroes/${heroe.id}`,
+      heroe
+    );
+  }
+
+  deleteHero(id: string): Observable<{}> {
+    return this.httpClient.delete<{}>(`${environment.apiURL}/heroes/${id}`);
+  }
 }
