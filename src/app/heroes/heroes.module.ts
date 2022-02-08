@@ -15,6 +15,7 @@ import { HeroesListComponent } from './pages/heroes-list/heroes-list.component';
 import { HeroeCardComponent } from './components/heroe-card/heroe-card.component';
 import { HeroeImagePipe } from './pipes/heroe-image.pipe';
 import { FormsModule } from '@angular/forms';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     HeroesListComponent,
     HeroeCardComponent,
     HeroeImagePipe,
+    ConfirmComponent,
   ],
   imports: [
     CommonModule,
